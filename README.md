@@ -4,7 +4,5 @@
 
 
 
-## 현재 진행 상황
-
-- https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation
+- [Landmarks](Landmarks)
 
