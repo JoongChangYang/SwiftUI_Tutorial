@@ -13,6 +13,8 @@
 		E0924AE02876A285007B8F2D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0924ADF2876A285007B8F2D /* Preview Assets.xcassets */; };
 		E0924AE72876CA59007B8F2D /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0924AE62876CA59007B8F2D /* CircleImage.swift */; };
 		E0924AE9287BDB7F007B8F2D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0924AE8287BDB7F007B8F2D /* MapView.swift */; };
+		E0924B0C287BFDA4007B8F2D /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = E0924B0B287BFDA4007B8F2D /* LICENSE.txt */; };
+		E0924B0E287BFDB8007B8F2D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E0924B0D287BFDB8007B8F2D /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		E0924ADF2876A285007B8F2D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0924AE62876CA59007B8F2D /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		E0924AE8287BDB7F007B8F2D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E0924B0B287BFDA4007B8F2D /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		E0924B0D287BFDB8007B8F2D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +43,9 @@
 		E0924ACC2876A283007B8F2D = {
 			isa = PBXGroup;
 			children = (
+				E0924B0D287BFDB8007B8F2D /* README.md */,
 				E0924AD72876A283007B8F2D /* Landmarks */,
+				E0924B0A287BFDA4007B8F2D /* LICENSE */,
 				E0924AD62876A283007B8F2D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +77,14 @@
 				E0924ADF2876A285007B8F2D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E0924B0A287BFDA4007B8F2D /* LICENSE */ = {
+			isa = PBXGroup;
+			children = (
+				E0924B0B287BFDA4007B8F2D /* LICENSE.txt */,
+			);
+			path = LICENSE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,7 +145,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0924B0C287BFDA4007B8F2D /* LICENSE.txt in Resources */,
 				E0924AE02876A285007B8F2D /* Preview Assets.xcassets in Resources */,
+				E0924B0E287BFDB8007B8F2D /* README.md in Resources */,
 				E0924ADD2876A285007B8F2D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
