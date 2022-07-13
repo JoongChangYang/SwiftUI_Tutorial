@@ -9,15 +9,27 @@ import SwiftUI
 
 struct LandmarkList: View {
     
-    private var landmarks = LocalStorageService.landmarks
+    @State
+    private var showFavoritesOnly = false
+    
+    private var filteredLandmarks: [Landmark] {
+        return LocalStorageService.landmarks.filter { !showFavoritesOnly || $0.isFavorite }
+    }
     
     var body: some View {
         NavigationView {
-            List(landmarks) { landmark in
-                NavigationLink {
-                    LandmarkDetail(landmark: landmark)
-                } label: {
-                    LandmarkRow(landmark: landmark)
+            List {
+                Toggle(isOn: $showFavoritesOnly, label: {
+                    Text("Faivotrites only")
+                })
+                
+                // 반복 리스트 만드는 객체 인듯
+                ForEach(filteredLandmarks) { landmark in
+                    NavigationLink {
+                        LandmarkDetail(landmark: landmark)
+                    } label: {
+                        LandmarkRow(landmark: landmark)
+                    }
                 }
             }
             .navigationTitle("Landmarks")
