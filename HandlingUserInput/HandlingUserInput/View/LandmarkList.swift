@@ -9,8 +9,7 @@ import SwiftUI
 
 struct LandmarkList: View {
     
-    @State
-    private var showFavoritesOnly = false
+    @State private var showFavoritesOnly = false
     
     private var filteredLandmarks: [Landmark] {
         return LocalStorageService.landmarks.filter { !showFavoritesOnly || $0.isFavorite }
