@@ -8,9 +8,8 @@
 import Foundation
 
 struct LocalStorageService {
-    static let landmarks: [Landmark] = load("landmarkData.json")
-    
-    private static func load<T: Decodable>(_ filename: String) -> T {
+
+    static func load<T: Decodable>(_ filename: String) -> T {
         let data: Data
         
         guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {

@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+    @EnvironmentObject var modelData: ModelData
     var landmark: Landmark
+    
+    var landmarkIndex: Int {
+        return modelData.landmarks.firstIndex(where: { $0.id == landmark.id }) ?? 0
+    }
     
     var body: some View {
         ScrollView {
@@ -24,9 +29,27 @@ struct LandmarkDetail: View {
                 
                 // spacing: VStack 안에 있는 뷰들 사이의 간격
                 VStack(alignment: .leading, spacing: 10) {
-                    self.titleView()
+                    HStack {
+                        Text(landmark.name)
+                            .font(.title)
+                        
+                        FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
+                    }
+                    
                     Divider() // 구분선
-                    self.descriptionView()
+                    
+                    HStack {
+                        Text(landmark.park)
+                        Spacer() // 가운데 여백
+                        Text(landmark.state)
+                    }
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                    
+                    Text("About \(landmark.name)")
+                        .font(.title2)
+                    
+                    Text(landmark.description)
                 }
                 .padding()
                 
@@ -37,36 +60,10 @@ struct LandmarkDetail: View {
         }
             
     }
-    
-    private func titleView() -> some View {
-        let titleText = Text(landmark.name)
-            .font(.title)
-        
-        let subTitleView = HStack {
-            Text(landmark.park)
-            Spacer() // 가운데 여백
-            Text(landmark.state)
-        }
-            .font(.subheadline)
-            .foregroundColor(.secondary)
-        
-        let result = TupleView((titleText, subTitleView))
-        return result
-    }
-    
-    private func descriptionView() -> some View {
-        let descriptionTitleText = Text("About \(landmark.name)")
-            .font(.title2)
-        
-        let descriptionText = Text(landmark.description)
-        
-        let result = TupleView((descriptionTitleText, descriptionText))
-        return result
-    }
 }
 
 struct LandmarkDetail_Previews: PreviewProvider {
     static var previews: some View {
-        LandmarkDetail(landmark: LocalStorageService.landmarks[1])
+        LandmarkDetail(landmark: ModelData().landmarks[0])
     }
 }

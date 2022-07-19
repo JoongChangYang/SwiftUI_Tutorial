@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Landmark: Codable, Identifiable/*id 있어야함(Hashable)*/ {
-    let id: Int
+struct Landmark: Codable, Identifiable {
+    let id: Int // Identifiable 선언 프로퍼티
     let name: String
     let park: String
     let state: String
