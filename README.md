@@ -6,4 +6,5 @@
 
 - [Landmarks](Landmarks)
 - [BuildingListsAndNavigation](BuildingListsAndNavigation)
+- [HandlingUserInput](HandlingUserInput)
 
