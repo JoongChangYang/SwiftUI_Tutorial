@@ -42,6 +42,8 @@ struct ContentView: View {
                             lastNameFocused = false
                         }
                         .submitLabel(.done)
+                    
+                    Button("Submit", action: { self.viewModel.test() })
                 },
                         header: {
                     Text("이름을 입력하세요")

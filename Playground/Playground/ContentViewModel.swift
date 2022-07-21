@@ -15,4 +15,20 @@ struct User {
 
 final class ContentViewModel: ObservableObject {
     @Published var user = User()
+    
+    func test() {
+        let publisher = Just("YJC")
+        
+        let subscriber = publisher.sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                print("receiveCompletion finished")
+            case .failure(let error):
+                print("receiveCompletion", error.localizedDescription)
+            }
+        }, receiveValue: { value in
+            print("receiveValue", value)
+        })
+        
+    }
 }
