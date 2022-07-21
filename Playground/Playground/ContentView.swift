@@ -32,18 +32,22 @@ struct ContentView: View {
                     TextField("성", text: self.$viewModel.user.firstName)
                         .focused(self.$firstNameFocused)
                         .onSubmit {
-                            lastNameFocused = true
+                            self.lastNameFocused = true
                         }
                         .submitLabel(.next)
                     
                     TextField("이름", text: self.$viewModel.user.lastName)
                         .focused(self.$lastNameFocused)
                         .onSubmit {
-                            lastNameFocused = false
+                            self.lastNameFocused = false
                         }
                         .submitLabel(.done)
                     
-                    Button("Submit", action: { self.viewModel.test() })
+                    HStack {
+                        Spacer()
+                        Button("Submit", action: { self.viewModel.test() })
+                        Spacer()
+                    }
                 },
                         header: {
                     Text("이름을 입력하세요")
@@ -54,9 +58,15 @@ struct ContentView: View {
                         .font(.footnote)
                 })
             }
+            
+            self.logInView(log: "update")
         }
-        
         // end
+    }
+    
+    private func logInView(log: String) -> some View {
+        print("\(log), -\(Date())")
+        return EmptyView()
     }
 }
 
