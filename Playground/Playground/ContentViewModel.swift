@@ -41,53 +41,50 @@ final class JCSubscriber<Input, Failure: Error>: Subscriber {
     
 }
 
-struct User {
+struct User: Decodable {
     var firstName = ""
     var lastName = ""
+    let email: String
+    let id: Int
+    let bio: String
+    
+    
+    static var empty: User {
+        return User(email: "none", id: -1)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case email
+        case id
+        case bio
+    }
+    
+    init(email: String, id: Int, bio: String = "") {
+        self.email = email
+        self.id = id
+        self.bio = bio
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.email = (try? container.decode(String.self, forKey: .email)) ?? ""
+        self.id = (try? container.decode(Int.self, forKey: .id)) ?? -2
+        self.bio = (try? container.decode(String.self, forKey: .bio)) ?? ""
+    }
 }
 
 final class ContentViewModel: ObservableObject {
-    @Published var user = User()
-    
+    @Published var user = User.empty
     private var bag = Set<AnyCancellable>()
-    let syncQueue = DispatchQueue.global(qos: .background)
+    
     func test() {
-        let subject = CurrentValueSubject<String, Never>("시작")
-        let subscriber = subject.handleEvents(
-            receiveSubscription: { subscription in
-                print("receiveSubscription")
-            }, receiveOutput: { output in
-                print("receiveOutput: \(output)")
-            }, receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("finished")
-                case .failure(let error):
-                    print("failure", error.localizedDescription)
-                }
-            },
-            receiveCancel: {
-                print("receiveCancel")
-            }, receiveRequest: { demand in
-                print("receiveRequest: \(demand)")
-            })
-            .sink(receiveCompletion: { completion in
-                print("in sink")
-                switch completion {
-                case .finished:
-                    print("finished")
-                case .failure(let error):
-                    print("failure", error.localizedDescription)
-                }
-            }, receiveValue: { value in
-                print("in sink")
-                print(value)
-            })
-            
-        
-        subject.send("1")
-        subject.send("2")
-        subscriber.cancel()
-        
+        let url = URL(string: "https://api.github.com/users/didwndckd")!
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: User.self, decoder: JSONDecoder())
+            .replaceError(with: User(email: "error", id: -1))
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.user, on: self)
+            .store(in: &self.bag)
     }
 }

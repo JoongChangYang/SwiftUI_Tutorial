@@ -14,8 +14,14 @@ struct OffsetPreferenceKey: PreferenceKey {
     }
 }
 
+struct SomeStruct {
+    var str = ""
+}
+
 struct ContentView: View {
     
+    @State private someStruct = SomeStruct()
+    @State private var str = ""
     @ObservedObject private var viewModel = ContentViewModel()
     @FocusState private var firstNameFocused: Bool
     @FocusState private var lastNameFocused: Bool
@@ -26,6 +32,14 @@ struct ContentView: View {
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(30)
+            
+            Text("이메일: \(self.viewModel.user.email)")
+                .font(.headline)
+                .padding()
+            
+            Text("bio: \(self.viewModel.user.bio)")
+                .font(.headline)
+                .padding()
             
             List {
                 Section(content: {
@@ -40,12 +54,15 @@ struct ContentView: View {
                         .focused(self.$lastNameFocused)
                         .onSubmit {
                             self.lastNameFocused = false
+                            
                         }
                         .submitLabel(.done)
                     
                     HStack {
                         Spacer()
-                        Button("Submit", action: { self.viewModel.test() })
+                        Button("Submit", action: {
+                            self.viewModel.test()
+                        })
                         Spacer()
                     }
                 },
@@ -66,6 +83,7 @@ struct ContentView: View {
     
     private func logInView(log: String) -> some View {
         print("\(log), -\(Date())")
+        
         return EmptyView()
     }
 }
