@@ -74,6 +74,13 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		315CD20D2896BAAD008B5BDC /* MVVMTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MVVMTest;
+			sourceTree = "<group>";
+		};
 		315DE75028956BFA00EDE621 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +119,7 @@
 		E0B5B5C12887F7D800CEFB47 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				315CD20D2896BAAD008B5BDC /* MVVMTest */,
 				315CD20A28958676008B5BDC /* App */,
 				315CD2032895854E008B5BDC /* AlertMemoryLeakTest */,
 				315DE75028956BFA00EDE621 /* Alert */,
