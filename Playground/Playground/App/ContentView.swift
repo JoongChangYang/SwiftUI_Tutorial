@@ -20,7 +20,7 @@ struct SomeStruct {
 
 struct ContentView: View {
     
-    @State private someStruct = SomeStruct()
+    @State private var someStruct = SomeStruct()
     @State private var str = ""
     @ObservedObject private var viewModel = ContentViewModel()
     @FocusState private var firstNameFocused: Bool

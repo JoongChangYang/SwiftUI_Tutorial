@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		315CD2052895856C008B5BDC /* AlertMemoryLeakTestFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315CD2042895856C008B5BDC /* AlertMemoryLeakTestFirstView.swift */; };
+		315CD2072895857C008B5BDC /* AlertMemoryLeakTestSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315CD2062895857C008B5BDC /* AlertMemoryLeakTestSecondView.swift */; };
+		315CD2092895858B008B5BDC /* AlertMemoryLeakTestSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315CD2082895858B008B5BDC /* AlertMemoryLeakTestSecondViewModel.swift */; };
+		315CD20C28959069008B5BDC /* AlertMemoryLeakTestFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315CD20B28959069008B5BDC /* AlertMemoryLeakTestFirstViewModel.swift */; };
+		315DE75428956BFA00EDE621 /* AlertActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DE75128956BFA00EDE621 /* AlertActionModel.swift */; };
+		315DE75528956BFA00EDE621 /* AlertView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DE75228956BFA00EDE621 /* AlertView+.swift */; };
+		315DE75628956BFA00EDE621 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DE75328956BFA00EDE621 /* AlertModel.swift */; };
+		31A4DCD72895621F00B44C5D /* ObservableObjectTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4DCD62895621F00B44C5D /* ObservableObjectTestViewModel.swift */; };
+		31A4DCDA2895623B00B44C5D /* ObservableObjectTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4DCD92895623B00B44C5D /* ObservableObjectTestView.swift */; };
 		E0B5B5C32887F7D800CEFB47 /* PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B5B5C22887F7D800CEFB47 /* PlaygroundApp.swift */; };
 		E0B5B5C52887F7D800CEFB47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B5B5C42887F7D800CEFB47 /* ContentView.swift */; };
 		E0B5B5C72887F7D900CEFB47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0B5B5C62887F7D900CEFB47 /* Assets.xcassets */; };
@@ -15,6 +24,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		315CD2042895856C008B5BDC /* AlertMemoryLeakTestFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMemoryLeakTestFirstView.swift; sourceTree = "<group>"; };
+		315CD2062895857C008B5BDC /* AlertMemoryLeakTestSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMemoryLeakTestSecondView.swift; sourceTree = "<group>"; };
+		315CD2082895858B008B5BDC /* AlertMemoryLeakTestSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMemoryLeakTestSecondViewModel.swift; sourceTree = "<group>"; };
+		315CD20B28959069008B5BDC /* AlertMemoryLeakTestFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMemoryLeakTestFirstViewModel.swift; sourceTree = "<group>"; };
+		315DE75128956BFA00EDE621 /* AlertActionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionModel.swift; sourceTree = "<group>"; };
+		315DE75228956BFA00EDE621 /* AlertView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlertView+.swift"; sourceTree = "<group>"; };
+		315DE75328956BFA00EDE621 /* AlertModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		31A4DCD62895621F00B44C5D /* ObservableObjectTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObjectTestViewModel.swift; sourceTree = "<group>"; };
+		31A4DCD92895623B00B44C5D /* ObservableObjectTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObjectTestView.swift; sourceTree = "<group>"; };
 		E0B5B5BF2887F7D800CEFB47 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0B5B5C22887F7D800CEFB47 /* PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundApp.swift; sourceTree = "<group>"; };
 		E0B5B5C42887F7D800CEFB47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +52,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		315CD2032895854E008B5BDC /* AlertMemoryLeakTest */ = {
+			isa = PBXGroup;
+			children = (
+				315CD2042895856C008B5BDC /* AlertMemoryLeakTestFirstView.swift */,
+				315CD20B28959069008B5BDC /* AlertMemoryLeakTestFirstViewModel.swift */,
+				315CD2062895857C008B5BDC /* AlertMemoryLeakTestSecondView.swift */,
+				315CD2082895858B008B5BDC /* AlertMemoryLeakTestSecondViewModel.swift */,
+			);
+			path = AlertMemoryLeakTest;
+			sourceTree = "<group>";
+		};
+		315CD20A28958676008B5BDC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E0B5B5C42887F7D800CEFB47 /* ContentView.swift */,
+				E0B5B5D02887FA4400CEFB47 /* ContentViewModel.swift */,
+				E0B5B5C22887F7D800CEFB47 /* PlaygroundApp.swift */,
+				E0B5B5C62887F7D900CEFB47 /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		315DE75028956BFA00EDE621 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				315DE75128956BFA00EDE621 /* AlertActionModel.swift */,
+				315DE75228956BFA00EDE621 /* AlertView+.swift */,
+				315DE75328956BFA00EDE621 /* AlertModel.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		31A4DCD82895622300B44C5D /* ObservableObjectTest */ = {
+			isa = PBXGroup;
+			children = (
+				31A4DCD62895621F00B44C5D /* ObservableObjectTestViewModel.swift */,
+				31A4DCD92895623B00B44C5D /* ObservableObjectTestView.swift */,
+			);
+			path = ObservableObjectTest;
+			sourceTree = "<group>";
+		};
 		E0B5B5B62887F7D800CEFB47 = {
 			isa = PBXGroup;
 			children = (
@@ -53,10 +112,10 @@
 		E0B5B5C12887F7D800CEFB47 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
-				E0B5B5C22887F7D800CEFB47 /* PlaygroundApp.swift */,
-				E0B5B5C42887F7D800CEFB47 /* ContentView.swift */,
-				E0B5B5D02887FA4400CEFB47 /* ContentViewModel.swift */,
-				E0B5B5C62887F7D900CEFB47 /* Assets.xcassets */,
+				315CD20A28958676008B5BDC /* App */,
+				315CD2032895854E008B5BDC /* AlertMemoryLeakTest */,
+				315DE75028956BFA00EDE621 /* Alert */,
+				31A4DCD82895622300B44C5D /* ObservableObjectTest */,
 				E0B5B5C82887F7D900CEFB47 /* Preview Content */,
 			);
 			path = Playground;
@@ -142,7 +201,16 @@
 			files = (
 				E0B5B5C52887F7D800CEFB47 /* ContentView.swift in Sources */,
 				E0B5B5D12887FA4400CEFB47 /* ContentViewModel.swift in Sources */,
+				315CD2052895856C008B5BDC /* AlertMemoryLeakTestFirstView.swift in Sources */,
+				315DE75428956BFA00EDE621 /* AlertActionModel.swift in Sources */,
+				315CD20C28959069008B5BDC /* AlertMemoryLeakTestFirstViewModel.swift in Sources */,
+				315DE75528956BFA00EDE621 /* AlertView+.swift in Sources */,
+				315DE75628956BFA00EDE621 /* AlertModel.swift in Sources */,
+				31A4DCDA2895623B00B44C5D /* ObservableObjectTestView.swift in Sources */,
+				31A4DCD72895621F00B44C5D /* ObservableObjectTestViewModel.swift in Sources */,
 				E0B5B5C32887F7D800CEFB47 /* PlaygroundApp.swift in Sources */,
+				315CD2072895857C008B5BDC /* AlertMemoryLeakTestSecondView.swift in Sources */,
+				315CD2092895858B008B5BDC /* AlertMemoryLeakTestSecondViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +339,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Playground/Preview Content\"";
-				DEVELOPMENT_TEAM = 3S767N4AG9;
+				DEVELOPMENT_TEAM = KV6282V296;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -301,7 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Playground/Preview Content\"";
-				DEVELOPMENT_TEAM = 3S767N4AG9;
+				DEVELOPMENT_TEAM = KV6282V296;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
