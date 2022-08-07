@@ -4,4 +4,5 @@
 
 - SwiftUI Essentials
   - [Landmarks](https://developer.apple.com/tutorials/swiftui/creating-and-combining-views)
+  - [BuildingListsAndNavigation](https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation)
 
