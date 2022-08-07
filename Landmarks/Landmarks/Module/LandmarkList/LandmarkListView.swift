@@ -10,18 +10,34 @@ import SwiftUI
 struct LandmarkListView: View {
     @ObservedObject private var viewModel = LandmarkListViewModel()
     
-    
     var body: some View {
         NavigationView {
-            List(viewModel.state.landmarks) { landmark in
-                NavigationLink {
-                    LandmarkDetailView(viewModel: LandmarkDetailViewModel(landmark: landmark))
-                } label: {
-                    LandmarkRow(landmark: landmark)
-                }
+            
+            List {
+                Toggle(isOn: self.$viewModel.state.showFavoritesOnly,
+                       label: {
+                    Text("Faivotrites only")
+                })
+                
+                ForEach(self.viewModel.filteredLandmarks, content: { landmark in
+                    NavigationLink(destination: {
+                        self.detailView(landmark)
+                    }, label: {
+                        LandmarkRow(landmark: landmark)
+                    })
+                    
+                })
             }
             .navigationTitle("Landmarks")
         }
+    }
+}
+
+extension LandmarkListView {
+    @ViewBuilder
+    private func detailView(_ landmrk: Landmark) -> some View {
+        let viewModel = self.viewModel.detailViewModel(landmark: landmrk)
+        LandmarkDetailView(viewModel: viewModel)
     }
 }
 

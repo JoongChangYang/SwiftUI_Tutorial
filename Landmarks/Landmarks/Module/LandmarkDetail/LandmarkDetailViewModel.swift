@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class LandmarkDetailViewModel: ObservableObject, ViewModel {
     @Published var state: State
@@ -17,13 +18,11 @@ final class LandmarkDetailViewModel: ObservableObject, ViewModel {
 
 extension LandmarkDetailViewModel {
     struct State {
-        let landmark: Landmark
+        var landmark: Landmark
     }
     enum Action {}
 }
 
 extension LandmarkDetailViewModel {
-    func action(_ action: Action) {
-        
-    }
+    func action(_ action: Action) {}
 }

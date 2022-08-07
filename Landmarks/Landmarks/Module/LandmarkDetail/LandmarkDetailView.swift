@@ -17,21 +17,9 @@ struct LandmarkDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                MapView(coordinate: .init(latitude: self.viewModel.state.landmark.coordinates.latitude,
-                                          longitude: self.viewModel.state.landmark.coordinates.longitude))
-                .frame(height: 300)
-                .ignoresSafeArea()
-                
-                CircleImage(image: Image(self.viewModel.state.landmark.imageName))
-                    .offset(y: -130)
-                    .padding(.bottom, -130)
-                
-                // spacing: VStack 안에 있는 뷰들 사이의 간격
-                VStack(alignment: .leading, spacing: 10) {
-                    self.titleView()
-                    Divider() // 구분선
-                    self.descriptionView()
-                }
+                self.mapView
+                self.imageView
+                self.contentView
                 .padding()
                 
                 Spacer()
@@ -44,30 +32,59 @@ struct LandmarkDetailView: View {
 }
 
 extension LandmarkDetailView {
-    private func titleView() -> some View {
-        let titleText = Text(self.viewModel.state.landmark.name)
-            .font(.title)
-        
-        let subTitleView = HStack {
+    @ViewBuilder
+    private var mapView: some View {
+        MapView(coordinate: .init(latitude: self.viewModel.state.landmark.coordinates.latitude,
+                                  longitude: self.viewModel.state.landmark.coordinates.longitude))
+        .frame(height: 300)
+        .ignoresSafeArea()
+    }
+    
+    @ViewBuilder
+    private var imageView: some View {
+        CircleImage(image: Image(self.viewModel.state.landmark.imageName))
+            .offset(y: -130)
+            .padding(.bottom, -130)
+    }
+    
+    @ViewBuilder
+    private var contentView: some View {
+        // spacing: VStack 안에 있는 뷰들 사이의 간격
+        VStack(alignment: .leading, spacing: 10) {
+            self.titleView
+            self.subtitleView
+            Divider() // 구분선
+            self.descriptionView
+        }
+    }
+    
+    @ViewBuilder
+    private var titleView: some View {
+        HStack {
+            Text(self.viewModel.state.landmark.name)
+                .font(.title)
+            
+//            FavoriteButton(isSet: self.$listViewModel.state.landmarks[self.landmarkIndex].isFavorite)
+            FavoriteButton(isSet: self.$viewModel.state.landmark.isFavorite)
+        }
+    }
+    
+    @ViewBuilder
+    private var subtitleView: some View {
+        HStack {
             Text(self.viewModel.state.landmark.park)
             Spacer() // 가운데 여백
             Text(self.viewModel.state.landmark.state)
         }
             .font(.subheadline)
             .foregroundColor(.secondary)
-        
-        let result = TupleView((titleText, subTitleView))
-        return result
     }
     
-    private func descriptionView() -> some View {
-        let descriptionTitleText = Text("About \(self.viewModel.state.landmark.name)")
+    @ViewBuilder
+    var descriptionView: some View {
+        Text("About \(self.viewModel.state.landmark.name)")
             .font(.title2)
-        
-        let descriptionText = Text(self.viewModel.state.landmark.description)
-        
-        let result = TupleView((descriptionTitleText, descriptionText))
-        return result
+        Text(self.viewModel.state.landmark.description)
     }
 }
 

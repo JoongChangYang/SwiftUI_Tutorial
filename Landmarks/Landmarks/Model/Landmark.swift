@@ -15,6 +15,7 @@ struct Landmark: Codable, Identifiable/*id 있어야함(Hashable)*/ {
     let description: String
     let imageName: String
     let coordinates: Coordinates
+    var isFavorite: Bool
     
     struct Coordinates: Codable {
         let latitude: Double
