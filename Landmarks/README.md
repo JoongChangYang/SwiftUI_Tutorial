@@ -6,4 +6,9 @@
   - [Landmarks](https://developer.apple.com/tutorials/swiftui/creating-and-combining-views)
   - [BuildingListsAndNavigation](https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation)
   - [HandlingUserInput](https://developer.apple.com/tutorials/swiftui/handling-user-input)
+  
+- Drawing and Animation
+  
+  - [Drawing Paths and Shapes](https://developer.apple.com/tutorials/swiftui/drawing-paths-and-shapes)
+  
 
