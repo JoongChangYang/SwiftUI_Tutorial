@@ -10,5 +10,6 @@
 - Drawing and Animation
   
   - [Drawing Paths and Shapes](https://developer.apple.com/tutorials/swiftui/drawing-paths-and-shapes)
+  - [Animating Views and Transitions](https://developer.apple.com/tutorials/swiftui/animating-views-and-transitions)
   
 

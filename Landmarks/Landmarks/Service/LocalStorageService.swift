@@ -9,6 +9,7 @@ import Foundation
 
 struct LocalStorageService {
     static let landmarks: [Landmark] = load("landmarkData.json")
+    static let hikes: [Hike] = load("hikeData.json")
     
     private static func load<T: Decodable>(_ filename: String) -> T {
         let data: Data
