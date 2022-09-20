@@ -18,9 +18,9 @@ struct HexagonParameters {
     
     static let segments = [
         Segment(
-            line:    CGPoint(x: 0.60, y: 0.05),
-            curve:   CGPoint(x: 0.40, y: 0.05),
-            control: CGPoint(x: 0.50, y: 0.00)
+            line:    CGPoint(x: 0.60, y: 0.05), // 곡선의 시작점
+            curve:   CGPoint(x: 0.40, y: 0.05), // 곡선의 끝점
+            control: CGPoint(x: 0.50, y: 0.00) // 곡선의 중간점
         ),
         Segment(
             line:    CGPoint(x: 0.05, y: 0.20 + adjustment),
