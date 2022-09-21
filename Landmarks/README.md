@@ -1,6 +1,6 @@
 # Landmarks
 
-> 공식 문서 튜토리얼을 기반으로 코드를 재구성
+> 공식 문서 튜토리얼
 
 - SwiftUI Essentials
   - [Landmarks](https://developer.apple.com/tutorials/swiftui/creating-and-combining-views)
@@ -8,9 +8,12 @@
   - [HandlingUserInput](https://developer.apple.com/tutorials/swiftui/handling-user-input)
   
 - Drawing and Animation
+  
   - [Drawing Paths and Shapes](https://developer.apple.com/tutorials/swiftui/drawing-paths-and-shapes)
   - [Animating Views and Transitions](https://developer.apple.com/tutorials/swiftui/animating-views-and-transitions)
   
 - App Design and Layout
   - [Composing Complex Interfaces](https://developer.apple.com/tutorials/swiftui/composing-complex-interfaces)
+  - [Working with UI Controls](https://developer.apple.com/tutorials/swiftui/working-with-ui-controls)
+  
 
