@@ -8,7 +8,8 @@ A view displaying information about a hike, including an elevation graph.
 import SwiftUI
 
 struct HikeView: View {
-    @ObservedObject private var viewModel: HikeViewModel
+    @ObservedObject
+    private var viewModel: HikeViewModel
     
     init(viewModel: HikeViewModel) {
         self.viewModel = viewModel

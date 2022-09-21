@@ -10,7 +10,13 @@ import Combine
 
 final class LandmarkListViewModel: ObservableObject, ViewModel {
     private var cancelStore = Set<AnyCancellable>()
-    @Published var state = State()
+    
+    @Published
+    var state = State()
+    
+    init() {
+        self.bind()
+    }
 }
 
 extension LandmarkListViewModel {
@@ -19,13 +25,17 @@ extension LandmarkListViewModel {
         var showFavoritesOnly = false
     }
     
-    enum Action {
-        
-    }
+    enum Action {}
+    func action(_ action: Action) {}
 }
 
 extension LandmarkListViewModel {
-    func action(_ action: Action) {
+    private func bind() {
+        LandmarkDataService.shared.landmarksPublisher
+            .sink(receiveValue: { [weak self] list in
+                self?.state.landmarks = list
+            })
+            .store(in: &self.cancelStore)
     }
 }
 
@@ -37,14 +47,6 @@ extension LandmarkListViewModel {
     }
     
     func detailViewModel(landmark: Landmark) -> LandmarkDetailViewModel {
-        let viewModel = LandmarkDetailViewModel(landmark: landmark)
-        viewModel.$state
-            .map { $0.landmark }
-            .sink(receiveValue: { [weak self] landmark in
-                guard let index = self?.state.landmarks.firstIndex(where: { $0.id == landmark.id && $0.isFavorite != landmark.isFavorite }) else { return }
-                self?.state.landmarks[index] = landmark
-            })
-            .store(in: &self.cancelStore)
-        return viewModel
+        return LandmarkDetailViewModel(landmark: landmark)
     }
 }

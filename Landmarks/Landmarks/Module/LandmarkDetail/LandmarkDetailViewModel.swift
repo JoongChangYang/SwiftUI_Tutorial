@@ -9,10 +9,14 @@ import Foundation
 import Combine
 
 final class LandmarkDetailViewModel: ObservableObject, ViewModel {
-    @Published var state: State
+    private var cancelStore = Set<AnyCancellable>()
+    
+    @Published
+    var state: State
     
     init(landmark: Landmark) {
         self.state = State(landmark: landmark)
+        self.bind()
     }
 }
 
@@ -20,9 +24,18 @@ extension LandmarkDetailViewModel {
     struct State {
         var landmark: Landmark
     }
+    
     enum Action {}
+    func action(_ action: Action) {}
 }
 
 extension LandmarkDetailViewModel {
-    func action(_ action: Action) {}
+    private func bind() {
+        self.$state
+            .map { $0.landmark }
+            .sink(receiveValue: { landmark in
+                LandmarkDataService.shared.updateLandmark(landmark)
+            })
+            .store(in: &self.cancelStore)
+    }
 }
