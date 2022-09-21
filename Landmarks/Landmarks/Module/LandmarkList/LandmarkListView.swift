@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct LandmarkListView: View {
-    @ObservedObject private var viewModel = LandmarkListViewModel()
+    @ObservedObject
+    private var viewModel: LandmarkListViewModel
+    
+    init(viewModel: LandmarkListViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         NavigationView {
@@ -43,6 +48,6 @@ extension LandmarkListView {
 
 struct LandmarkListView_Previews: PreviewProvider {
     static var previews: some View {
-        LandmarkListView()
+        LandmarkListView(viewModel: LandmarkListViewModel())
     }
 }

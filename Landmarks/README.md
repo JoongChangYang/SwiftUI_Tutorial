@@ -1,6 +1,6 @@
 # Landmarks
 
-> 공식 문서 튜토리얼
+> 공식 문서 튜토리얼을 기반으로 코드를 재구성
 
 - SwiftUI Essentials
   - [Landmarks](https://developer.apple.com/tutorials/swiftui/creating-and-combining-views)

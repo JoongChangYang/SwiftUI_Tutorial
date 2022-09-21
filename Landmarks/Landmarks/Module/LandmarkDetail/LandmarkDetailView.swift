@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LandmarkDetailView: View {
-    @ObservedObject private var viewModel: LandmarkDetailViewModel
+    @ObservedObject
+    private var viewModel: LandmarkDetailViewModel
     
     init(viewModel: LandmarkDetailViewModel) {
         self.viewModel = viewModel
