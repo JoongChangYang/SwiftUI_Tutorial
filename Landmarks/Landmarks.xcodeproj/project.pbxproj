@@ -45,6 +45,7 @@
 		E0AA3B2828DACB2B006F7DA9 /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA3B2728DACB2B006F7DA9 /* MainTabViewModel.swift */; };
 		E0AA3B2A28DACBAA006F7DA9 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA3B2928DACBAA006F7DA9 /* MainTabView.swift */; };
 		E0AA3B2C28DAE372006F7DA9 /* LandmarkDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA3B2B28DAE372006F7DA9 /* LandmarkDataService.swift */; };
+		E0AA3B2E28DB02BC006F7DA9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA3B2D28DB02BC006F7DA9 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		E0AA3B2728DACB2B006F7DA9 /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		E0AA3B2928DACBAA006F7DA9 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		E0AA3B2B28DAE372006F7DA9 /* LandmarkDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDataService.swift; sourceTree = "<group>"; };
+		E0AA3B2D28DB02BC006F7DA9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				31029F21289FAADA0059EDFC /* Landmark.swift */,
 				310AF96928D74A7300C1DDBE /* Hike.swift */,
+				E0AA3B2D28DB02BC006F7DA9 /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				31029F27289FAB540059EDFC /* LandmarkListView.swift in Sources */,
 				310AF97C28D7525000C1DDBE /* HikeView.swift in Sources */,
 				31F1D32B28BFB09600751614 /* BadgeBackground.swift in Sources */,
+				E0AA3B2E28DB02BC006F7DA9 /* Profile.swift in Sources */,
 				310AF97A28D7525000C1DDBE /* HikeGraph.swift in Sources */,
 				E0AA3B1928D99B7D006F7DA9 /* AnyTransition.swift in Sources */,
 				E0AA3B2328DAA149006F7DA9 /* CategoryRow.swift in Sources */,
