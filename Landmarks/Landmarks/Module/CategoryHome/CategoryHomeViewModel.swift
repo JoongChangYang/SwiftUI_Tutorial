@@ -23,10 +23,19 @@ final class CategoryHomeViewModel: ViewModel, ObservableObject {
 extension CategoryHomeViewModel {
     struct State {
         var categories: [String: [Landmark]] = [:]
+        var showProfile = false
     }
     
-    enum Action {}
-    func action(_ action: Action) {}
+    enum Action {
+        case profile
+    }
+    
+    func action(_ action: Action) {
+        switch action {
+        case .profile:
+            self.state.showProfile.toggle()
+        }
+    }
 }
 
 extension CategoryHomeViewModel {

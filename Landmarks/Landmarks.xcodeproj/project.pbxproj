@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3100445428DB63D700E6C3F9 /* HikeBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3100445328DB63D700E6C3F9 /* HikeBadgeView.swift */; };
 		31029F1D289FAA620059EDFC /* LocalStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31029F1C289FAA620059EDFC /* LocalStorageService.swift */; };
 		31029F22289FAADA0059EDFC /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31029F21289FAADA0059EDFC /* Landmark.swift */; };
 		31029F27289FAB540059EDFC /* LandmarkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31029F26289FAB540059EDFC /* LandmarkListView.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3100445328DB63D700E6C3F9 /* HikeBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeBadgeView.swift; sourceTree = "<group>"; };
 		31029F1C289FAA620059EDFC /* LocalStorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageService.swift; sourceTree = "<group>"; };
 		31029F21289FAADA0059EDFC /* Landmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		31029F26289FAB540059EDFC /* LandmarkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListView.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				E0AA3B3028DB0667006F7DA9 /* ProfileHostViewModel.swift */,
 				E0AA3B3228DB06AA006F7DA9 /* ProfileHostView.swift */,
 				E0AA3B3428DB0897006F7DA9 /* ProfileSummaryView.swift */,
+				3100445328DB63D700E6C3F9 /* HikeBadgeView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				310AF96A28D74A7300C1DDBE /* Hike.swift in Sources */,
 				E0AA3B2C28DAE372006F7DA9 /* LandmarkDataService.swift in Sources */,
 				E0924AD92876A283007B8F2D /* LandmarksApp.swift in Sources */,
+				3100445428DB63D700E6C3F9 /* HikeBadgeView.swift in Sources */,
 				31029F1D289FAA620059EDFC /* LocalStorageService.swift in Sources */,
 				E0AA3B3328DB06AA006F7DA9 /* ProfileHostView.swift in Sources */,
 				E0AA3B2A28DACBAA006F7DA9 /* MainTabView.swift in Sources */,

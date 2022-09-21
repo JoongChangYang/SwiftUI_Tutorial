@@ -16,7 +16,9 @@ final class ProfileHostViewModel: ViewModel, ObservableObject {
 extension ProfileHostViewModel {
     struct State {
         let profile = Profile.default
+        let hike = LocalStorageService.hikes[0]
     }
+    
     enum Action {}
     func action(_ action: Action) {}
 }
