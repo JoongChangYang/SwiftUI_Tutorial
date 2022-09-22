@@ -27,13 +27,13 @@ struct ProfileSummaryView: View {
 extension ProfileSummaryView {
     @ViewBuilder
     private var headerView: some View {
-        Text(profile.userName)
+        Text(self.profile.userName)
             .bold()
             .font(.title)
         
         Text("Notifications: \(self.profile.prefersNotifications ? "On": "Off")")
         Text("Seasonal Photos: \(self.profile.seasonalPhoto.rawValue)")
-        Text("Goal Date: ") + Text(profile.goalDate, style: .date)
+        Text("Goal Date: ") + Text(self.profile.goalDate, style: .date)
     }
     
     @ViewBuilder
