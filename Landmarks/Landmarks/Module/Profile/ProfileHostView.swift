@@ -11,15 +11,35 @@ struct ProfileHostView: View {
     @ObservedObject
     private var viewModel: ProfileHostViewModel
     
+    @Environment(\.editMode)
+    private var editMode
+    
     init(viewModel: ProfileHostViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            ProfileSummaryView(profile: self.viewModel.state.profile)
+            self.headerView
+            
+            if self.editMode?.wrappedValue == .inactive {
+                ProfileSummaryView(profile: self.viewModel.state.profile)
+            } else {
+                Text("Profile Editor")
+            }
+            
         }
         .padding()
+    }
+}
+
+extension ProfileHostView {
+    @ViewBuilder
+    private var headerView: some View {
+        HStack {
+            Spacer()
+            EditButton()
+        }
     }
 }
 
