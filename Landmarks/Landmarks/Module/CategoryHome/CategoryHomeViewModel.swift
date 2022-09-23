@@ -44,9 +44,7 @@ extension CategoryHomeViewModel {
             .map { list in
                 Dictionary(grouping: list, by: { $0.category.rawValue })
             }
-            .sink(receiveValue: { [weak self] categories in
-                self?.state.categories = categories
-            })
+            .assign(to: \.state.categories, on: self)
             .store(in: &self.cancelBag)
     }
 }
