@@ -18,36 +18,45 @@ struct HikeView: View {
     var body: some View {
         VStack {
             HStack {
-                HikeGraph(hike: self.viewModel.state.hike, path: \.elevation)
-                    .frame(width: 50, height: 30)
-
-                VStack(alignment: .leading) {
-                    Text(self.viewModel.state.hike.name)
-                        .font(.headline)
-                    Text(self.viewModel.state.hike.distanceText)
-                }
-
+                self.contentView
                 Spacer()
-
-                Button {
-                    withAnimation {
-                        self.viewModel.action(.detail)
-                    }
-                } label: {
-                    Label("Graph", systemImage: "chevron.right.circle")
-                        .labelStyle(.iconOnly)
-                        .imageScale(.large)
-                        .rotationEffect(.degrees(self.viewModel.state.showDetail ? 90 : 0))
-                        .scaleEffect(self.viewModel.state.showDetail ? 1.5: 1)
-                        .padding()
-                }
-
+                self.detailButton
             }
 
             if self.viewModel.state.showDetail {
                 HikeDetail(hike: self.viewModel.state.hike)
                     .transition(.moveAndFade)
             }
+        }
+    }
+}
+
+extension HikeView {
+    @ViewBuilder
+    private var contentView: some View {
+        HikeGraph(hike: self.viewModel.state.hike, path: \.elevation)
+            .frame(width: 50, height: 30)
+
+        VStack(alignment: .leading) {
+            Text(self.viewModel.state.hike.name)
+                .font(.headline)
+            Text(self.viewModel.state.hike.distanceText)
+        }
+    }
+    
+    @ViewBuilder
+    private var detailButton: some View {
+        Button {
+            withAnimation {
+                self.viewModel.action(.detail)
+            }
+        } label: {
+            Label("Graph", systemImage: "chevron.right.circle")
+                .labelStyle(.iconOnly)
+                .imageScale(.large)
+                .rotationEffect(.degrees(self.viewModel.state.showDetail ? 90 : 0))
+                .scaleEffect(self.viewModel.state.showDetail ? 1.5: 1)
+                .padding()
         }
     }
 }

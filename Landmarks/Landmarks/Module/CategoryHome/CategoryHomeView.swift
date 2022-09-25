@@ -25,7 +25,21 @@ struct CategoryHomeView: View {
                 }
                 .listRowInsets(EdgeInsets())
             }
-                .navigationTitle("Featured")
+            .listStyle(.inset)
+            .navigationTitle("Featured")
+            .toolbar {
+                Button {
+                    self.viewModel.action(.profile)
+                } label: {
+                    Label("User Profile", systemImage: "person.crop.circle")
+                }
+            }
+            .sheet(isPresented: self.$viewModel.state.showProfile,
+                   onDismiss: { print("Profile dismiss")},
+                   content: {
+                let viewModel = ProfileHostViewModel()
+                ProfileHostView(viewModel: viewModel)
+            })
         }
     }
 }

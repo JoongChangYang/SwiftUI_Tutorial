@@ -32,9 +32,7 @@ extension LandmarkListViewModel {
 extension LandmarkListViewModel {
     private func bind() {
         LandmarkDataService.shared.landmarksPublisher
-            .sink(receiveValue: { [weak self] list in
-                self?.state.landmarks = list
-            })
+            .assign(to: \.state.landmarks, on: self)
             .store(in: &self.cancelStore)
     }
 }

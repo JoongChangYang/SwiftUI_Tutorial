@@ -23,10 +23,19 @@ final class CategoryHomeViewModel: ViewModel, ObservableObject {
 extension CategoryHomeViewModel {
     struct State {
         var categories: [String: [Landmark]] = [:]
+        var showProfile = false
     }
     
-    enum Action {}
-    func action(_ action: Action) {}
+    enum Action {
+        case profile
+    }
+    
+    func action(_ action: Action) {
+        switch action {
+        case .profile:
+            self.state.showProfile.toggle()
+        }
+    }
 }
 
 extension CategoryHomeViewModel {
@@ -35,9 +44,7 @@ extension CategoryHomeViewModel {
             .map { list in
                 Dictionary(grouping: list, by: { $0.category.rawValue })
             }
-            .sink(receiveValue: { [weak self] categories in
-                self?.state.categories = categories
-            })
+            .assign(to: \.state.categories, on: self)
             .store(in: &self.cancelBag)
     }
 }
