@@ -8,10 +8,10 @@
 import Foundation
 
 struct Profile {
-    let userName: String
-    let prefersNotifications = true
-    let seasonalPhoto = Season.winter
-    let goalDate = Date()
+    var userName: String
+    var prefersNotifications = true
+    var seasonalPhoto = Season.winter
+    var goalDate = Date()
     
     static let `default` = Profile(userName: "양중창")
 }

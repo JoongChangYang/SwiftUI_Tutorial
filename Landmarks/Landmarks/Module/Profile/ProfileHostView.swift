@@ -25,7 +25,13 @@ struct ProfileHostView: View {
             if self.editMode?.wrappedValue == .inactive {
                 ProfileSummaryView(profile: self.viewModel.state.profile)
             } else {
-                Text("Profile Editor")
+                ProfileEditorView(profile: self.$viewModel.state.profile)
+                    .onAppear {
+                        self.viewModel.action(.fetchProfile)
+                    }
+                    .onDisappear {
+                        self.viewModel.action(.updateProfile)
+                    }
             }
             
         }
@@ -37,6 +43,13 @@ extension ProfileHostView {
     @ViewBuilder
     private var headerView: some View {
         HStack {
+            if self.editMode?.wrappedValue == .active {
+                Button("cancel", role: .cancel) {
+                    self.viewModel.action(.editingCancel)
+                    self.editMode?.animation().wrappedValue = .inactive
+                }
+            }
+            
             Spacer()
             EditButton()
         }

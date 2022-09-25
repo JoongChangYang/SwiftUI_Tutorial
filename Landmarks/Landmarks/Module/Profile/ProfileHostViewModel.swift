@@ -15,10 +15,38 @@ final class ProfileHostViewModel: ViewModel, ObservableObject {
 
 extension ProfileHostViewModel {
     struct State {
-        let profile = Profile.default
+        var profile = ProfileService.shared.currentProfile
         let hike = LocalStorageService.hikes[0]
     }
     
-    enum Action {}
-    func action(_ action: Action) {}
+    enum Action {
+        case editingCancel
+        case fetchProfile
+        case updateProfile
+    }
+    
+    func action(_ action: Action) {
+        switch action {
+        case .editingCancel:
+            self.editingCancel()
+        case .fetchProfile:
+            self.fetchProfile()
+        case .updateProfile:
+            self.updateProfile()
+        }
+    }
+}
+
+extension ProfileHostViewModel {
+    private func editingCancel() {
+        self.state.profile = ProfileService.shared.currentProfile
+    }
+    
+    private func fetchProfile() {
+        self.state.profile = ProfileService.shared.currentProfile
+    }
+    
+    private func updateProfile() {
+        ProfileService.shared.updateProfile(self.state.profile)
+    }
 }
