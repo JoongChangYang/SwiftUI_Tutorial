@@ -19,13 +19,17 @@ struct Landmark: Codable, Identifiable/*id 있어야함(Hashable)*/ {
     var isFavorite: Bool
     let isFeatured: Bool
     
-    struct Coordinates: Codable {
-        let latitude: Double
-        let longitude: Double
+    var featureImageName: String? {
+        self.isFeatured ? self.imageName + "_feature": nil
     }
 }
 
 extension Landmark {
+    struct Coordinates: Codable {
+        let latitude: Double
+        let longitude: Double
+    }
+    
     enum Category: String, CaseIterable, Codable {
         case lakes = "Lakes"
         case rivers = "Rivers"

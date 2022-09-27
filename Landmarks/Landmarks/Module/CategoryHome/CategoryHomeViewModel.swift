@@ -51,7 +51,7 @@ extension CategoryHomeViewModel {
 
 extension CategoryHomeViewModel {
     var featuredLandmark: Landmark? {
-        return LocalStorageService.landmarks.filter { $0.isFeatured }.first
+        return LandmarkDataService.shared.features.first
     }
     
     func landmarkItems(key: String) -> [Landmark] {

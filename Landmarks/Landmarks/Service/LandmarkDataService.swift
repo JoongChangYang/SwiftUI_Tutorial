@@ -24,6 +24,10 @@ extension LandmarkDataService {
         self.landmarks.value
     }
     
+    var features: [Landmark] {
+        self.currentLandmarks.filter { $0.isFeatured }
+    }
+    
     func updateLandmark(_ landmark: Landmark) {
         var result = self.landmarks.value
         guard let index = result.firstIndex(where: { $0.id == landmark.id && $0.isFavorite != landmark.isFavorite }) else { return }
