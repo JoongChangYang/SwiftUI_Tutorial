@@ -161,13 +161,11 @@
 		31029F23289FAAE40059EDFC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31D0160D28E882C000FE0A7E /* PageView */,
+				31F1D32928BFB08200751614 /* Badge */,
 				E0924AE62876CA59007B8F2D /* CircleImage.swift */,
 				E0924AE8287BDB7F007B8F2D /* MapView.swift */,
 				3158D6C8289FB65D0088CA78 /* FavoriteButton.swift */,
-				31F1D32928BFB08200751614 /* Badge */,
-				31FAB99128E33DA400FD718E /* PageViewController.swift */,
-				31FAB99328E3450700FD718E /* FeatureCard.swift */,
-				31863BB328E349900099E734 /* PageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -231,6 +229,16 @@
 				3158D6C6289FB20D0088CA78 /* LandmarkDetailView.swift */,
 			);
 			path = LandmarkDetail;
+			sourceTree = "<group>";
+		};
+		31D0160D28E882C000FE0A7E /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				31FAB99128E33DA400FD718E /* PageViewController.swift */,
+				31FAB99328E3450700FD718E /* FeatureCard.swift */,
+				31863BB328E349900099E734 /* PageView.swift */,
+			);
+			path = PageView;
 			sourceTree = "<group>";
 		};
 		31F1D32928BFB08200751614 /* Badge */ = {
