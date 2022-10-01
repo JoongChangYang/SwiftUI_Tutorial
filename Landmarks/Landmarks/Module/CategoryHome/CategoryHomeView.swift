@@ -47,14 +47,9 @@ struct CategoryHomeView: View {
 extension CategoryHomeView {
     @ViewBuilder
     private var featuredView: some View {
-        if let landmark = self.viewModel.featuredLandmark {
-            Image(landmark.imageName)
-                .resizable()
-                .scaledToFill()
-                .frame(height: 200)
-                .clipped()
-                .listRowInsets(EdgeInsets())
-        }
+        PageView(pages: self.viewModel.featuredLandmark.map { FeatureCard(landmark: $0) })
+            .aspectRatio(3 / 2, contentMode: .fit)
+            .listRowInsets(EdgeInsets())
     }
     
     @ViewBuilder

@@ -50,8 +50,8 @@ extension CategoryHomeViewModel {
 }
 
 extension CategoryHomeViewModel {
-    var featuredLandmark: Landmark? {
-        return LandmarkDataService.shared.features.first
+    var featuredLandmark: [Landmark] {
+        return LandmarkDataService.shared.features
     }
     
     func landmarkItems(key: String) -> [Landmark] {

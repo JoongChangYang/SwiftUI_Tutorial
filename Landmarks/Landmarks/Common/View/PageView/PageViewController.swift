@@ -11,6 +11,9 @@ import UIKit
 struct PageViewController<Page: View>: UIViewControllerRepresentable {
     var pages: [Page]
     
+    @Binding
+    var currentPage: Int
+    
     func makeCoordinator() -> Coordinator {
         return Coordinator(self)
     }
@@ -20,25 +23,28 @@ struct PageViewController<Page: View>: UIViewControllerRepresentable {
                                                       navigationOrientation: .horizontal,
                                                       options: nil)
         pageViewController.dataSource = context.coordinator
+        pageViewController.delegate = context.coordinator
         
         return pageViewController
     }
     
     func updateUIViewController(_ pageViewController: UIPageViewController, context: Context) {
-        pageViewController.setViewControllers([context.coordinator.controllers[0]],
+        pageViewController.setViewControllers([context.coordinator.controllers[self.currentPage]],
                                               direction: .forward,
                                               animated: true)
     }
 }
 
 extension PageViewController {
-    final class Coordinator: NSObject, UIPageViewControllerDataSource {
+    final class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
         var parent: PageViewController
         var controllers = [UIViewController]()
 
         init(_ pageViewController: PageViewController) {
             self.parent = pageViewController
             self.controllers = self.parent.pages.map { UIHostingController(rootView: $0) }
+            
+            self.controllers.enumerated().forEach { $0.element.title = "\($0.offset)" }
         }
         
         func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -59,6 +65,15 @@ extension PageViewController {
             }
             
             return self.controllers[index + 1]
+        }
+        
+        func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+            guard completed,
+                  let visibleViewController = pageViewController.viewControllers?.first,
+                  let index = self.controllers.firstIndex(of: visibleViewController)
+            else { return }
+            
+            self.parent.currentPage = index
         }
     }
 }
