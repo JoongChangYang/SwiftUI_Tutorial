@@ -65,7 +65,6 @@ extension LandmarkDetailView {
             Text(self.viewModel.state.landmark.name)
                 .font(.title)
             
-//            FavoriteButton(isSet: self.$listViewModel.state.landmarks[self.landmarkIndex].isFavorite)
             FavoriteButton(isSet: self.$viewModel.state.landmark.isFavorite)
         }
     }

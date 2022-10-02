@@ -11,7 +11,7 @@ import SwiftUI
 struct LandmarksApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView(viewModel: MainTabViewModel())
+            ContentView()
         }
     }
 }
