@@ -35,8 +35,7 @@ struct LandmarkDetailView: View {
 extension LandmarkDetailView {
     @ViewBuilder
     private var mapView: some View {
-        MapView(coordinate: .init(latitude: self.viewModel.state.landmark.coordinates.latitude,
-                                  longitude: self.viewModel.state.landmark.coordinates.longitude))
+        MapView(coordinate: self.viewModel.landmarkCoordinate)
         .frame(height: 300)
         .ignoresSafeArea()
     }

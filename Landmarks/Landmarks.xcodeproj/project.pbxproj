@@ -352,8 +352,8 @@
 			children = (
 				E0924B0D287BFDB8007B8F2D /* README.md */,
 				E0924AD72876A283007B8F2D /* Landmarks */,
-				E0924B0A287BFDA4007B8F2D /* LICENSE */,
 				31D23CCD28EA018D009B8842 /* WatchLandmarks Watch App */,
+				E0924B0A287BFDA4007B8F2D /* LICENSE */,
 				E0924AD62876A283007B8F2D /* Products */,
 			);
 			sourceTree = "<group>";
