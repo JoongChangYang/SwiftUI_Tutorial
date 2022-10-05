@@ -35,8 +35,7 @@ struct LandmarkDetailView: View {
 extension LandmarkDetailView {
     @ViewBuilder
     private var mapView: some View {
-        MapView(coordinate: .init(latitude: self.viewModel.state.landmark.coordinates.latitude,
-                                  longitude: self.viewModel.state.landmark.coordinates.longitude))
+        MapView(coordinate: self.viewModel.landmarkCoordinate)
         .frame(height: 300)
         .ignoresSafeArea()
     }
@@ -65,7 +64,6 @@ extension LandmarkDetailView {
             Text(self.viewModel.state.landmark.name)
                 .font(.title)
             
-//            FavoriteButton(isSet: self.$listViewModel.state.landmarks[self.landmarkIndex].isFavorite)
             FavoriteButton(isSet: self.$viewModel.state.landmark.isFavorite)
         }
     }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreLocation
 
 final class LandmarkDetailViewModel: ObservableObject, ViewModel {
     private var cancelStore = Set<AnyCancellable>()
@@ -37,5 +38,12 @@ extension LandmarkDetailViewModel {
                 LandmarkDataService.shared.updateLandmark(landmark)
             })
             .store(in: &self.cancelStore)
+    }
+}
+
+extension LandmarkDetailViewModel {
+    var landmarkCoordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: self.state.landmark.coordinates.latitude,
+                               longitude: self.state.landmark.coordinates.longitude)
     }
 }

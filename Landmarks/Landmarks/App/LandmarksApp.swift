@@ -11,7 +11,11 @@ import SwiftUI
 struct LandmarksApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView(viewModel: MainTabViewModel())
+            ContentView()
         }
+        
+        #if os(watchOS)
+        WKNotificationScene(controller: NotificationController.self, category: "LandmarkNear")
+        #endif
     }
 }
