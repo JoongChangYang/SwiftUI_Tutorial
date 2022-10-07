@@ -34,6 +34,9 @@ struct LandmarkListView: View {
                 })
             }
             .navigationTitle("Landmarks")
+            #if os(macOS)
+            .frame(minWidth: 300)
+            #endif
         }
     }
 }
