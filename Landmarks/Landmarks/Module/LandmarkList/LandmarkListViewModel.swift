@@ -23,9 +23,20 @@ extension LandmarkListViewModel {
     struct State {
         var landmarks = LocalStorageService.landmarks
         var showFavoritesOnly = false
+        var filter = FilterCategory.all
     }
     
     enum Action {}
+    
+    enum FilterCategory: String, CaseIterable, Identifiable {
+        case all = "All"
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
+        
+        var id: FilterCategory { self }
+    }
+    
     func action(_ action: Action) {}
 }
 
@@ -38,9 +49,16 @@ extension LandmarkListViewModel {
 }
 
 extension LandmarkListViewModel {
+    var title: String {
+        let filter = self.state.filter
+        let title = filter == .all ? "Landmarks": filter.rawValue
+        return self.state.showFavoritesOnly ? "Favorite \(title)": title
+    }
+    
     var filteredLandmarks: [Landmark] {
         self.state.landmarks.filter { landmark in
-            return !self.state.showFavoritesOnly || landmark.isFavorite
+            return (!self.state.showFavoritesOnly || landmark.isFavorite)
+            && (self.state.filter == .all || self.state.filter.rawValue == landmark.category.rawValue)
         }
     }
     
