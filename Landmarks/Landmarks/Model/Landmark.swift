@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Landmark: Codable, Identifiable/*id 있어야함(Hashable)*/ {
+struct Landmark: Codable, Hashable, Identifiable/*id 있어야함(Hashable)*/ {
     let id: Int
     let name: String
     let park: String
@@ -25,7 +25,7 @@ struct Landmark: Codable, Identifiable/*id 있어야함(Hashable)*/ {
 }
 
 extension Landmark {
-    struct Coordinates: Codable {
+    struct Coordinates: Codable, Hashable {
         let latitude: Double
         let longitude: Double
     }

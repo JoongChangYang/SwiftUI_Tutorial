@@ -17,7 +17,7 @@ struct LandmarkListView: View {
     
     var body: some View {
         NavigationView {
-            List {
+            List(selection: self.$viewModel.state.selectedLandmark) {
                 #if os(watchOS)
                 self.favoriteOnlyToggle
                 #endif
@@ -27,7 +27,7 @@ struct LandmarkListView: View {
                     }, label: {
                         LandmarkRow(landmark: landmark)
                     })
-                    
+                    .tag(landmark)
                 })
             }
             .navigationTitle(self.viewModel.title)
@@ -42,6 +42,7 @@ struct LandmarkListView: View {
             Text("Select a Landmark")
             #endif
         }
+        .focusedValue(\.selectedLandmark, self.$viewModel.state.landmarks[self.viewModel.selectedLandmarkIndex])
     }
 }
 

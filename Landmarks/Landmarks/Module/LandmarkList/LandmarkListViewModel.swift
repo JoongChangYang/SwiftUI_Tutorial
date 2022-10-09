@@ -24,6 +24,7 @@ extension LandmarkListViewModel {
         var landmarks = LocalStorageService.landmarks
         var showFavoritesOnly = false
         var filter = FilterCategory.all
+        var selectedLandmark: Landmark?
     }
     
     enum Action {}
@@ -60,6 +61,10 @@ extension LandmarkListViewModel {
             return (!self.state.showFavoritesOnly || landmark.isFavorite)
             && (self.state.filter == .all || self.state.filter.rawValue == landmark.category.rawValue)
         }
+    }
+    
+    var selectedLandmarkIndex: Int {
+        self.state.landmarks.firstIndex { $0.id == self.state.selectedLandmark?.id } ?? 0
     }
     
     func detailViewModel(landmark: Landmark) -> LandmarkDetailViewModel {
