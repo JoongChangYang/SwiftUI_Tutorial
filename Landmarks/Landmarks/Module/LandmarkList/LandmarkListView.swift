@@ -17,24 +17,32 @@ struct LandmarkListView: View {
     
     var body: some View {
         NavigationView {
-            
-            List {
-                Toggle(isOn: self.$viewModel.state.showFavoritesOnly,
-                       label: {
-                    Text("Faivotrites only")
-                })
-                
+            List(selection: self.$viewModel.state.selectedLandmark) {
+                #if os(watchOS)
+                self.favoriteOnlyToggle
+                #endif
                 ForEach(self.viewModel.filteredLandmarks, content: { landmark in
                     NavigationLink(destination: {
                         self.detailView(landmark)
                     }, label: {
                         LandmarkRow(landmark: landmark)
                     })
-                    
+                    .tag(landmark)
                 })
             }
-            .navigationTitle("Landmarks")
+            .navigationTitle(self.viewModel.title)
+            #if os(macOS)
+            .frame(minWidth: 300)
+            #endif
+            .toolbar {
+                ToolbarItem { self.filterCategoryMenuButton }
+            }
+            
+            #if os(macOS)
+            Text("Select a Landmark")
+            #endif
         }
+        .focusedValue(\.selectedLandmark, self.$viewModel.state.landmarks[self.viewModel.selectedLandmarkIndex])
     }
 }
 
@@ -44,6 +52,37 @@ extension LandmarkListView {
         let viewModel = self.viewModel.detailViewModel(landmark: landmrk)
         LandmarkDetailView(viewModel: viewModel)
     }
+    
+    @ViewBuilder
+    private var filterCategoryMenuButton: some View {
+        #if !os(watchOS)
+        Menu {
+            self.categoryPicker
+            self.favoriteOnlyToggle
+        } label: {
+            Label("Filter", systemImage: "slider.horizontal.3")
+        }
+        #endif
+    }
+    
+    @ViewBuilder
+    private var categoryPicker: some View {
+        Picker("Category", selection: self.$viewModel.state.filter) {
+            ForEach(LandmarkListViewModel.FilterCategory.allCases) { category in
+                Text(category.rawValue).tag(category)
+            }
+        }
+        .pickerStyle(.inline)
+    }
+    
+    @ViewBuilder
+    private var favoriteOnlyToggle: some View {
+        Toggle(isOn: self.$viewModel.state.showFavoritesOnly,
+               label: {
+            Text("Faivotrites only")
+        })
+    }
+    
 }
 
 struct LandmarkListView_Previews: PreviewProvider {

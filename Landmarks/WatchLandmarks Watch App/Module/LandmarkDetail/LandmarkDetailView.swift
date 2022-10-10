@@ -30,7 +30,7 @@ struct LandmarkDetailView: View {
             }
             .padding(16)
         }
-        .navigationTitle("Landmarks")
+        .navigationTitle(self.viewModel.state.landmark.name)
     }
 }
 

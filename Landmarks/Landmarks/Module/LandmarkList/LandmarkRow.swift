@@ -13,18 +13,42 @@ struct LandmarkRow: View {
     
     var body: some View {
         HStack {
-            Image(landmark.imageName)
-                .resizable() // 이미지를 뷰에 맞게 리사이징
-                .frame(width: 50, height: 50)
-            
-            Text(landmark.name)
-            
+            self.imageView
+            self.informationView
             Spacer()
-            
-            if landmark.isFavorite {
-                Image(systemName: "star.fill")
-                    .foregroundColor(.yellow)
-            }
+            self.favoriteView
+        }
+        .padding(.vertical, 4)
+    }
+}
+
+extension LandmarkRow {
+    @ViewBuilder
+    private var imageView: some View {
+        Image(self.landmark.imageName)
+            .resizable() // 이미지를 뷰에 맞게 리사이징
+            .frame(width: 50, height: 50)
+            .cornerRadius(5)
+    }
+    
+    @ViewBuilder
+    private var informationView: some View {
+        VStack(alignment: .leading) {
+            Text(self.landmark.name)
+                .bold()
+            #if !os(watchOS)
+            Text(self.landmark.park)
+                .font(.caption)
+                .foregroundColor(.secondary)
+            #endif
+        }
+    }
+    
+    @ViewBuilder
+    private var favoriteView: some View {
+        if self.landmark.isFavorite {
+            Image(systemName: "star.fill")
+                .foregroundColor(.yellow)
         }
     }
 }
