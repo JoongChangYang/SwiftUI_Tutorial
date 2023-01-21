@@ -16,6 +16,7 @@
 		315DE75628956BFA00EDE621 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DE75328956BFA00EDE621 /* AlertModel.swift */; };
 		31A4DCD72895621F00B44C5D /* ObservableObjectTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4DCD62895621F00B44C5D /* ObservableObjectTestViewModel.swift */; };
 		31A4DCDA2895623B00B44C5D /* ObservableObjectTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4DCD92895623B00B44C5D /* ObservableObjectTestView.swift */; };
+		31E4565D297C1A0400A0B308 /* ScrollViewOffsetTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E4565C297C1A0400A0B308 /* ScrollViewOffsetTestView.swift */; };
 		E0B5B5C32887F7D800CEFB47 /* PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B5B5C22887F7D800CEFB47 /* PlaygroundApp.swift */; };
 		E0B5B5C52887F7D800CEFB47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B5B5C42887F7D800CEFB47 /* ContentView.swift */; };
 		E0B5B5C72887F7D900CEFB47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0B5B5C62887F7D900CEFB47 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		315DE75328956BFA00EDE621 /* AlertModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		31A4DCD62895621F00B44C5D /* ObservableObjectTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObjectTestViewModel.swift; sourceTree = "<group>"; };
 		31A4DCD92895623B00B44C5D /* ObservableObjectTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObjectTestView.swift; sourceTree = "<group>"; };
+		31E4565C297C1A0400A0B308 /* ScrollViewOffsetTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetTestView.swift; sourceTree = "<group>"; };
 		E0B5B5BF2887F7D800CEFB47 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0B5B5C22887F7D800CEFB47 /* PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundApp.swift; sourceTree = "<group>"; };
 		E0B5B5C42887F7D800CEFB47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 			path = ObservableObjectTest;
 			sourceTree = "<group>";
 		};
+		31E4565B297C19E400A0B308 /* ScrollViewOffsetTest */ = {
+			isa = PBXGroup;
+			children = (
+				31E4565C297C1A0400A0B308 /* ScrollViewOffsetTestView.swift */,
+			);
+			path = ScrollViewOffsetTest;
+			sourceTree = "<group>";
+		};
 		E0B5B5B62887F7D800CEFB47 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +129,7 @@
 		E0B5B5C12887F7D800CEFB47 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				31E4565B297C19E400A0B308 /* ScrollViewOffsetTest */,
 				315CD20D2896BAAD008B5BDC /* MVVMTest */,
 				315CD20A28958676008B5BDC /* App */,
 				315CD2032895854E008B5BDC /* AlertMemoryLeakTest */,
@@ -214,6 +225,7 @@
 				315CD20C28959069008B5BDC /* AlertMemoryLeakTestFirstViewModel.swift in Sources */,
 				315DE75528956BFA00EDE621 /* AlertView+.swift in Sources */,
 				315DE75628956BFA00EDE621 /* AlertModel.swift in Sources */,
+				31E4565D297C1A0400A0B308 /* ScrollViewOffsetTestView.swift in Sources */,
 				31A4DCDA2895623B00B44C5D /* ObservableObjectTestView.swift in Sources */,
 				31A4DCD72895621F00B44C5D /* ObservableObjectTestViewModel.swift in Sources */,
 				E0B5B5C32887F7D800CEFB47 /* PlaygroundApp.swift in Sources */,
